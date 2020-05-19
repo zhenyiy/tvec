@@ -20,7 +20,7 @@ if __name__ == '__main__':
     step = 5
     data_1min_sm = data_1min[
         (data_1min.index >= frst_match_data_1min.to_list()) & ((data_1min.index - frst_match_data_1min) % step == 0)]
-    data_5min.iloc[:, 1] = data_1min_sm.iloc[:, 1].values
+    data_5min.iloc[:, 1] = (data_1min_sm.iloc[:, 2].values + data_1min_sm.iloc[:, 3].values) / 2
 
     data_5min.to_csv(output_dir + '/' + file_name, index=False)
     print("Done")
